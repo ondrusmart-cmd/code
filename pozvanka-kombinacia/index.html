@@ -1,0 +1,99 @@
+<!doctype html><html lang="sk"><head><meta charset="utf-8"><title>Spoločenstvo venca</title>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Kalam:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1024px;height:1536px;overflow:hidden;background:#2a1a10}
+#stage{position:absolute;inset:0;transform-origin:50% 42%}
+#bg{position:absolute;inset:0;width:1024px;height:1536px}
+.red{font-family:'Kaushan Script',cursive;color:#a1232a;text-shadow:0 1px 0 rgba(120,30,20,.18)}
+.grn{font-family:Kalam,cursive;font-weight:700;color:#2f4a2c}
+.ink{font-family:Kalam,cursive;color:#3b2a1d}
+#t1{position:absolute;left:238px;top:104px;font-size:100px;line-height:1.2;white-space:nowrap}
+#t2{position:absolute;left:0;right:90px;top:186px;text-align:center;font-size:128px;line-height:1.2}
+#sub{position:absolute;left:0;right:0;top:316px;text-align:center;font-size:24px;color:#6b4527}
+#hat{position:absolute;left:140px;top:45px;width:195px;height:155px}
+#date{position:absolute;left:380px;width:310px;top:352px;height:76px;display:flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap}
+#date .d1{font-size:36px}#date .d2{font-size:56px;line-height:1}
+.blk{position:absolute}
+.lab{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:12px;line-height:1.05}
+.lab .red{font-size:42px}.lab .grn{font-size:29px}
+.body{font-size:23px;line-height:1.3;margin-top:4px}
+.ex{font-family:Kalam,cursive;font-size:19px;color:#7a5634;margin-top:3px}
+#ring{position:absolute;left:660px;top:1100px;width:146px;height:146px}
+#foot{position:absolute;left:285px;width:460px;top:1318px;text-align:center}
+#foot .ink{font-size:24px;line-height:1.3}
+#foot .red{font-size:30px;margin-top:2px}
+/* --- animation layers --- */
+.lt{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:radial-gradient(circle,rgba(255,250,220,1) 0%,rgba(255,214,120,.75) 22%,rgba(255,170,60,.25) 50%,rgba(255,170,60,0) 72%);mix-blend-mode:screen;animation:tw 1.9s ease-in-out infinite}
+#flame{position:absolute;left:80px;top:1345px;width:190px;height:190px;margin:-95px 0 0 -95px;border-radius:50%;background:radial-gradient(circle,rgba(255,230,150,.95) 0%,rgba(255,170,60,.45) 30%,rgba(255,140,40,0) 70%);mix-blend-mode:screen;animation:fl 1.3s ease-in-out infinite}
+#steam{position:absolute;left:860px;top:1205px;width:130px;height:130px}
+#steam path{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round;opacity:0;animation:st 3s ease-in-out infinite;filter:blur(2px)}
+#snow{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#snow i{position:absolute;top:-20px;border-radius:50%;background:#fff;box-shadow:0 0 4px rgba(255,255,255,.9),0 1px 2px rgba(120,80,40,.35);animation:fall linear infinite}
+.spin{animation:spin 30s linear infinite;transform-origin:73px 73px}
+.rglow{animation:pu 2.2s ease-in-out infinite alternate}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes fl{0%,100%{opacity:.75;transform:scale(1)}20%{opacity:.95;transform:scale(1.08)}45%{opacity:.6;transform:scale(.93)}70%{opacity:1;transform:scale(1.05)}}
+@keyframes st{0%{opacity:0;transform:translateY(25px)}35%{opacity:.75}100%{opacity:0;transform:translateY(-35px)}}
+@keyframes fall{from{transform:translate(0,0)}50%{transform:translate(25px,800px)}to{transform:translate(-10px,1580px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pu{from{opacity:.35}to{opacity:.85}}
+/* intro */
+body.anim #stage{animation:kb 12s ease-in-out both}
+body.anim #t1{animation:wipe 1.3s .3s ease-out both}
+body.anim #t2{animation:wipe 1s 1.2s ease-out both}
+
+body.anim #sub{animation:fade .8s 2s both}
+body.anim #date{animation:pop .7s 2.3s cubic-bezier(.3,1.6,.5,1) both}
+body.anim .blk:nth-of-type(1){animation:up .7s 2.8s both}
+body.anim .blk:nth-of-type(2){animation:up .7s 3.2s both}
+body.anim .blk:nth-of-type(3){animation:up .7s 3.6s both}
+body.anim .blk:nth-of-type(4){animation:up .7s 4.0s both}
+body.anim #ring{animation:pop .9s 4.3s cubic-bezier(.3,1.6,.5,1) both}
+body.anim #foot{animation:up .8s 4.8s both}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes wipe{from{clip-path:inset(-30% 100% -30% 0)}to{clip-path:inset(-30% -5% -30% 0)}}
+@keyframes hatdrop{from{opacity:0;transform:translateY(-70px) rotate(-25deg)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:none}}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+</style></head><body>
+<div id="stage">
+<img id="bg" src="clean.png">
+<div class="lt" style="left:275px;top:4px;animation-delay:-0.45s;animation-duration:2.05s"></div><div class="lt" style="left:726px;top:2px;animation-delay:-0.70s;animation-duration:2.12s"></div><div class="lt" style="left:862px;top:5px;animation-delay:-1.19s;animation-duration:1.48s"></div><div class="lt" style="left:412px;top:4px;animation-delay:-0.03s;animation-duration:2.40s"></div><div class="lt" style="left:666px;top:16px;animation-delay:-0.49s;animation-duration:1.68s"></div><div class="lt" style="left:592px;top:13px;animation-delay:-1.89s;animation-duration:1.96s"></div><div class="lt" style="left:794px;top:14px;animation-delay:-1.59s;animation-duration:1.97s"></div><div class="lt" style="left:231px;top:16px;animation-delay:-1.21s;animation-duration:1.58s"></div><div class="lt" style="left:587px;top:17px;animation-delay:-1.21s;animation-duration:2.44s"></div><div class="lt" style="left:801px;top:19px;animation-delay:-0.99s;animation-duration:2.29s"></div><div class="lt" style="left:352px;top:24px;animation-delay:-1.28s;animation-duration:1.48s"></div><div class="lt" style="left:163px;top:30px;animation-delay:-1.44s;animation-duration:2.11s"></div><div class="lt" style="left:895px;top:26px;animation-delay:-0.57s;animation-duration:1.44s"></div><div class="lt" style="left:410px;top:38px;animation-delay:-1.64s;animation-duration:1.97s"></div><div class="lt" style="left:852px;top:41px;animation-delay:-1.37s;animation-duration:2.45s"></div><div class="lt" style="left:559px;top:50px;animation-delay:-1.36s;animation-duration:2.51s"></div><div class="lt" style="left:95px;top:61px;animation-delay:-0.75s;animation-duration:2.36s"></div><div class="lt" style="left:65px;top:68px;animation-delay:-0.84s;animation-duration:2.52s"></div><div class="lt" style="left:77px;top:65px;animation-delay:-1.67s;animation-duration:1.52s"></div><div class="lt" style="left:136px;top:70px;animation-delay:-0.26s;animation-duration:1.66s"></div><div class="lt" style="left:718px;top:72px;animation-delay:-1.83s;animation-duration:1.92s"></div><div class="lt" style="left:731px;top:72px;animation-delay:-1.19s;animation-duration:1.76s"></div><div class="lt" style="left:79px;top:92px;animation-delay:-0.96s;animation-duration:1.86s"></div><div class="lt" style="left:905px;top:112px;animation-delay:-0.67s;animation-duration:2.10s"></div><div class="lt" style="left:907px;top:138px;animation-delay:-1.11s;animation-duration:2.49s"></div><div class="lt" style="left:130px;top:138px;animation-delay:-1.30s;animation-duration:2.51s"></div><div class="lt" style="left:1007px;top:153px;animation-delay:-1.63s;animation-duration:2.59s"></div><div class="lt" style="left:983px;top:165px;animation-delay:-1.28s;animation-duration:1.60s"></div><div class="lt" style="left:994px;top:170px;animation-delay:-1.64s;animation-duration:2.56s"></div><div class="lt" style="left:962px;top:178px;animation-delay:-1.72s;animation-duration:2.08s"></div><div class="lt" style="left:955px;top:195px;animation-delay:-1.36s;animation-duration:1.65s"></div><div class="lt" style="left:132px;top:196px;animation-delay:-1.58s;animation-duration:2.09s"></div><div class="lt" style="left:103px;top:255px;animation-delay:-0.54s;animation-duration:1.48s"></div><div class="lt" style="left:98px;top:263px;animation-delay:-1.62s;animation-duration:2.59s"></div><div class="lt" style="left:141px;top:275px;animation-delay:-0.17s;animation-duration:2.36s"></div><div class="lt" style="left:997px;top:306px;animation-delay:-0.78s;animation-duration:1.58s"></div><div class="lt" style="left:106px;top:370px;animation-delay:-0.56s;animation-duration:2.32s"></div><div class="lt" style="left:78px;top:398px;animation-delay:-1.66s;animation-duration:1.45s"></div><div class="lt" style="left:42px;top:415px;animation-delay:-1.17s;animation-duration:1.45s"></div><div class="lt" style="left:923px;top:421px;animation-delay:-1.37s;animation-duration:1.80s"></div><div class="lt" style="left:65px;top:427px;animation-delay:-1.67s;animation-duration:2.58s"></div><div class="lt" style="left:51px;top:436px;animation-delay:-0.96s;animation-duration:2.60s"></div><div class="lt" style="left:94px;top:442px;animation-delay:-0.59s;animation-duration:1.49s"></div><div class="lt" style="left:59px;top:448px;animation-delay:-1.14s;animation-duration:1.44s"></div><div class="lt" style="left:985px;top:461px;animation-delay:-0.38s;animation-duration:1.89s"></div><div class="lt" style="left:72px;top:459px;animation-delay:-1.16s;animation-duration:1.59s"></div><div class="lt" style="left:78px;top:458px;animation-delay:-0.08s;animation-duration:2.44s"></div><div class="lt" style="left:83px;top:465px;animation-delay:-0.60s;animation-duration:2.55s"></div><div class="lt" style="left:892px;top:471px;animation-delay:-1.70s;animation-duration:1.85s"></div><div class="lt" style="left:5px;top:485px;animation-delay:-0.87s;animation-duration:2.02s"></div><div class="lt" style="left:995px;top:540px;animation-delay:-1.22s;animation-duration:2.11s"></div><div class="lt" style="left:985px;top:547px;animation-delay:-1.06s;animation-duration:2.14s"></div><div class="lt" style="left:91px;top:552px;animation-delay:-1.79s;animation-duration:2.01s"></div><div class="lt" style="left:1010px;top:566px;animation-delay:-0.82s;animation-duration:2.26s"></div><div class="lt" style="left:971px;top:596px;animation-delay:-0.45s;animation-duration:1.76s"></div><div class="lt" style="left:63px;top:604px;animation-delay:-1.86s;animation-duration:2.03s"></div><div class="lt" style="left:36px;top:614px;animation-delay:-1.04s;animation-duration:1.41s"></div><div class="lt" style="left:987px;top:621px;animation-delay:-0.79s;animation-duration:2.10s"></div><div class="lt" style="left:47px;top:623px;animation-delay:-0.04s;animation-duration:2.14s"></div><div class="lt" style="left:898px;top:760px;animation-delay:-1.20s;animation-duration:1.47s"></div><div class="lt" style="left:1018px;top:866px;animation-delay:-1.19s;animation-duration:1.96s"></div><div class="lt" style="left:66px;top:886px;animation-delay:-1.29s;animation-duration:1.82s"></div><div class="lt" style="left:62px;top:942px;animation-delay:-1.34s;animation-duration:2.29s"></div><div class="lt" style="left:98px;top:955px;animation-delay:-0.04s;animation-duration:1.47s"></div><div class="lt" style="left:1007px;top:962px;animation-delay:-1.28s;animation-duration:2.56s"></div><div class="lt" style="left:91px;top:971px;animation-delay:-0.48s;animation-duration:1.95s"></div><div class="lt" style="left:71px;top:980px;animation-delay:-1.13s;animation-duration:1.78s"></div><div class="lt" style="left:6px;top:986px;animation-delay:-0.69s;animation-duration:1.78s"></div><div class="lt" style="left:61px;top:1000px;animation-delay:-0.70s;animation-duration:2.11s"></div><div class="lt" style="left:1000px;top:1016px;animation-delay:-0.57s;animation-duration:1.85s"></div><div class="lt" style="left:75px;top:1028px;animation-delay:-1.47s;animation-duration:1.43s"></div><div class="lt" style="left:83px;top:1029px;animation-delay:-1.08s;animation-duration:2.28s"></div><div class="lt" style="left:34px;top:1033px;animation-delay:-0.59s;animation-duration:1.67s"></div><div class="lt" style="left:40px;top:1042px;animation-delay:-1.53s;animation-duration:1.69s"></div><div class="lt" style="left:34px;top:1048px;animation-delay:-0.36s;animation-duration:1.92s"></div><div class="lt" style="left:26px;top:1057px;animation-delay:-1.33s;animation-duration:1.52s"></div><div class="lt" style="left:13px;top:1063px;animation-delay:-0.61s;animation-duration:1.80s"></div><div class="lt" style="left:1018px;top:1084px;animation-delay:-1.58s;animation-duration:1.93s"></div><div class="lt" style="left:22px;top:1365px;animation-delay:-1.63s;animation-duration:1.60s"></div><div class="lt" style="left:25px;top:1364px;animation-delay:-0.64s;animation-duration:2.18s"></div><div class="lt" style="left:258px;top:1451px;animation-delay:-1.68s;animation-duration:1.94s"></div><div class="lt" style="left:253px;top:1456px;animation-delay:-0.43s;animation-duration:1.55s"></div><div class="lt" style="left:768px;top:1466px;animation-delay:-1.01s;animation-duration:1.63s"></div><div class="lt" style="left:786px;top:1464px;animation-delay:-1.53s;animation-duration:2.41s"></div><div class="lt" style="left:774px;top:1474px;animation-delay:-0.35s;animation-duration:1.73s"></div><div class="lt" style="left:684px;top:1506px;animation-delay:-1.53s;animation-duration:2.17s"></div><div class="lt" style="left:408px;top:1512px;animation-delay:-1.53s;animation-duration:1.81s"></div>
+<div id="flame"></div>
+<div id="t1" class="red">Spoločenstvo</div>
+<div id="t2" class="red">venca</div>
+<img id="hat" src="hat.png">
+<div id="sub" class="ink">~ deň, ktorý vonia ihličím, škoricou a perníkom ~</div>
+<div id="date"><span class="red d1">sobota</span><span class="d2" style="font-family:'Kaushan Script';color:#2f4a2c">28. 11.</span></div>
+<div id="blocks">
+<div class="blk" style="left:150px;top:452px;width:440px"><div class="lab"><span class="red">Ráno:</span><span class="grn">Výprava do Fangornu</span></div>
+<div class="body ink">Hobiti vyrážajú do lesa nad Modrou ako pravé Spoločenstvo venca – po čečinu.</div><div class="ex">Vezmi si teplé oblečenie, rukavice a nožnice.</div></div>
+<div class="blk" style="left:330px;top:660px;width:480px"><div class="lab"><span class="red">Na obed:</span><span class="grn">Druhé raňajky v Roklinke</span></div>
+<div class="body ink">Obed a káva vo Wild Kitchen Modra.</div><div class="ex">vonia: čerstvá káva a škorica</div></div>
+<div class="blk" style="left:145px;top:862px;width:500px"><div class="lab"><span class="red">Podvečer:</span><span class="grn">Kováčska dielňa elfov</span></div>
+<div class="body ink">Pletieme vianočné vence z našej čečiny.<br>„Môj miláčik…“ (myslí sa veniec)</div><div class="ex">vonia: pomaranč, klinčeky a čečina</div></div>
+<div class="blk" style="left:385px;top:1068px;width:275px"><div class="lab"><span class="red">Večer:</span><span class="grn">Návrat kráľa</span></div>
+<div class="body ink">Pozeráme Pána prsteňov pod dekou, s kakaom a popcornom.</div></div>
+</div>
+<svg id="ring" viewBox="0 0 146 146"><defs>
+<linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0a8"/><stop offset=".45" stop-color="#d8a628"/><stop offset=".75" stop-color="#9a6a0a"/><stop offset="1" stop-color="#f3d27a"/></linearGradient>
+<radialGradient id="gw"><stop offset=".55" stop-color="#ffb84a" stop-opacity="0"/><stop offset=".72" stop-color="#ffb84a" stop-opacity=".7"/><stop offset="1" stop-color="#ffb84a" stop-opacity="0"/></radialGradient>
+<path id="ip" d="M73,73 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs>
+<circle class="rglow" cx="73" cy="73" r="72" fill="url(#gw)"/>
+<ellipse cx="76" cy="80" rx="40" ry="38" fill="none" stroke="rgba(90,50,10,.25)" stroke-width="13"/>
+<circle cx="73" cy="73" r="38" fill="none" stroke="url(#gd)" stroke-width="13"/>
+<circle cx="73" cy="73" r="44" fill="none" stroke="#fff6c8" stroke-width="1" opacity=".6"/>
+<path d="M45,55 A34,34 0 0,1 70,36" stroke="#fffbe0" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>
+<g class="spin"><text font-family="Uncial Antiqua" font-size="12.5" fill="#c4520f" letter-spacing=".6"><textPath href="#ip">Jeden veniec vládne všetkým · jeden veniec ich zviaže ·</textPath></text></g>
+</svg>
+<div id="foot"><div class="ink">Príď si užiť deň plný prírody, dobrôt<br>a vianočnej atmosféry!</div><div class="red">Neprejdeš… bez potvrdenia účasti!</div></div>
+<svg id="steam" viewBox="0 0 130 130"><path d="M40,120 C25,95 55,80 40,55" style="animation-delay:0s"/><path d="M70,120 C55,92 88,78 70,48" style="animation-delay:-1s"/><path d="M98,120 C85,98 112,84 98,60" style="animation-delay:-2s"/></svg>
+<div id="snow"></div>
+</div>
+<script>
+(function(){var s=11;function r(){s=(s*9301+49297)%233280;return s/233280}var c=document.getElementById('snow');for(var i=0;i<55;i++){var e=document.createElement('i');var z=2+r()*5,d=8+r()*8;e.style.cssText='left:'+(r()*1024)+'px;width:'+z+'px;height:'+z+'px;opacity:'+(.55+r()*.45)+';animation-duration:'+d+'s;animation-delay:-'+(r()*d)+'s';c.appendChild(e)}
+if(location.hash=='#anim')document.body.classList.add('anim');})();
+</script>
+</body></html>
